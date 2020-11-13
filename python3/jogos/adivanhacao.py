@@ -3,16 +3,16 @@ print('Bem vindo ao jogo de adivinhação!')
 print('*********************************')
 
 numero_secreto = 42
-print('O tipo da variável é: ', type(numero_secreto))
+# print('O tipo da variável é: ', type(numero_secreto))
 
 chute_str = input('Digite o seu numero:')
-print('O tipo do input é: ', type(chute_str))
+# print('O tipo do input é: ', type(chute_str))
 
 print('Você digitou: ',chute_str)
 
 chute = int(chute_str)
 
-acertou = numero_secreto == chute
+acertou = chute == numero_secreto
 chute_maior = chute > numero_secreto
 chute_menor = chute < numero_secreto
 
