@@ -7,13 +7,13 @@ print('*********************************')
 # numero_secreto = round(random.random() * 100) # Por padrão a função gera um número de 0.0 e 1.0. Dessa forma podemos ter problemas com as validações do for
 numero_secreto = random.randrange(1, 101) # Dessa forma utilizamos uma função do módulo random para gerar um range automático para nós.
 total_de_tentativas = 0
+pontos = 1000
 # print(numero_secreto) # Caso você queira colar hahah
 
-print('Existem níveis de dificuldades, escolha e se divirta!')
+print('Existem níveis de dificuldades, escolha e se divirta!', numero_secreto)
 print('(1) Fácil \n(2) Médio \n(3) Difícil')
 
 dificuldade = int(input('Escolha a dificuldade: '))
-
 if(dificuldade == 1):
     total_de_tentativas = 20
 elif(dificuldade == 2):
@@ -38,13 +38,15 @@ for rodada in range(1, total_de_tentativas + 1):
     chute_menor = chute < numero_secreto
 
     if (acertou):
-        print('Você acertou')
+        print('Você acertou e fez um total de {} pontos'.format(pontos))
         break
     else:
         if(chute_maior):
             print('Você errou! O seu chute foi maior que o número secreto!')
         if(chute_menor):
             print('Você errou! O seu chute foi menor que o número secreto!')
+        pontos_perdidos = abs(numero_secreto - chute) # A pontuação varia da diferença entre o numero random e o chute do jogador
+        pontos = pontos - pontos_perdidos
     
 
 print(15 * '=')
