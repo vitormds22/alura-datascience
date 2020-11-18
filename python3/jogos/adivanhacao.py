@@ -6,9 +6,20 @@ print('*********************************')
 
 # numero_secreto = round(random.random() * 100) # Por padrão a função gera um número de 0.0 e 1.0. Dessa forma podemos ter problemas com as validações do for
 numero_secreto = random.randrange(1, 101) # Dessa forma utilizamos uma função do módulo random para gerar um range automático para nós.
-total_de_tentativas = 3
+total_de_tentativas = 0
+# print(numero_secreto) # Caso você queira colar hahah
 
-print(numero_secreto)
+print('Existem níveis de dificuldades, escolha e se divirta!')
+print('(1) Fácil \n(2) Médio \n(3) Difícil')
+
+dificuldade = int(input('Escolha a dificuldade: '))
+
+if(dificuldade == 1):
+    total_de_tentativas = 20
+elif(dificuldade == 2):
+    total_de_tentativas = 10
+else:
+    total_de_tentativas = 5
 
 for rodada in range(1, total_de_tentativas + 1):
     print(40 * '=')
