@@ -9,10 +9,14 @@ for rodada in range(1, total_de_tentativas + 1):
     print(40 * '=')
     print('Tentativa {} de {}'.format(rodada, total_de_tentativas))
 
-    chute_str = input('Digite o seu numero:')
+    chute_str = input('Digite um número entre 1 e 100:')
     print('Você digitou: ',chute_str)
     chute = int(chute_str)
 
+    if(chute < 1 or chute > 100):
+        print('Digite um número entre 1 e 100!')
+        continue # Esse comando faz com que o looping volte a acontecer
+    
     acertou = chute == numero_secreto
     chute_maior = chute > numero_secreto
     chute_menor = chute < numero_secreto
