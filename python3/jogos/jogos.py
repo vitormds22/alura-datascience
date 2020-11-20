@@ -11,7 +11,12 @@ jogo = int(input('Qual jogo você escolhe?: '))
 
 if(jogo == 1):
     print('Jogando forca')
+    forca.jogar()
 elif(jogo == 2):
+    print('===================')
     print('Jogando adivinhação')
+    print('===================')
+
+    adivinhacao.jogar()
 else:
     print('Selecione um valor válido')
