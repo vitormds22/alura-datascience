@@ -1,3 +1,6 @@
+import forca
+import adivinhacao
+
 print('*********************************')
 print('*******Escolha seu jogo !********')
 print('*********************************')
