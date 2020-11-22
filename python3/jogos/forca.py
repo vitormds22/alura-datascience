@@ -3,7 +3,7 @@ def jogar():
     print('***Bem vindo ao jogo de Forca!***')
     print('*********************************')
 
-    palavra_secreta = 'banana'
+    palavra_secreta = "banana"
     enforcou = False
     acertou = False
 
