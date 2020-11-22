@@ -14,7 +14,7 @@ def jogar():
     #enquanto(true)
     while(not enforcou and not acertou):
         chute = input('Chute uma letra: ')
-        chute_tratado = chute.lower()
+        chute_tratado = chute.lower().strip()
         
         index = 0
 
