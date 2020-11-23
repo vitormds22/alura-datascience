@@ -3,7 +3,7 @@ def jogar():
     print('***Bem vindo ao jogo de Forca!***')
     print('*********************************')
 
-    palavra_secreta = "banana"
+    palavra_secreta = "banana".upper()
     letras_acertadas = ['_','_','_','_','_',''] 
         
     enforcou = False
@@ -12,22 +12,29 @@ def jogar():
     
     while (not enforcou and not acertou):
         chute = input('Chute uma letra: ')
-        chute = chute.lower().strip()
+        chute = chute.upper().strip()
         
         if(chute in palavra_secreta):
             index = 0
             for letra in palavra_secreta:
-                if(letra.lower() == chute):
+                if(letra == chute):
                     letras_acertadas[index] = letra
                 index += 1
         else:
             ##Se o chute não estiver dentro da palavra secreta, então sai adiciona mais um erro
             erros += 1
+
         ##Quando os erros atingirem o numero 6 a var enforcou se torna True consequentemente saindo do laço
         enforcou = erros == 6
+        ##Quando o jogador acertou todas as letras
+        acertou = "_" not in letras_acertadas
         print(letras_acertadas)
     
-
+    if(acertou):
+        print('Você ganhaou')
+    else:
+        print('Você perdeu')
+        
     print('Fim do jogo!')
         
 
