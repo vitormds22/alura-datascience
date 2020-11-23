@@ -9,10 +9,6 @@ def jogar():
     enforcou = False
     acertou = False
     
-    # for letra in palavra_secreta:
-    #     print(letra)
-
-    #enquanto(true)
     while(not enforcou and not acertou):
         chute = input('Chute uma letra: ')
         chute = chute.lower().strip()
@@ -26,6 +22,6 @@ def jogar():
 
         print(letras_acertadas)
 
-#Teste de push
+###Teste de push###
 if(__name__ == "__main__"):
     jogar()
