@@ -26,5 +26,6 @@ def jogar():
 
         print(letras_acertadas)
 
+#Teste de push
 if(__name__ == "__main__"):
     jogar()
