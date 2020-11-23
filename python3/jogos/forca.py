@@ -8,7 +8,7 @@ def jogar():
         
     enforcou = False
     acertou = False
-    erros = 0
+    erros = 6
     
     while (not enforcou and not acertou):
         chute = input('Chute uma letra: ')
@@ -22,16 +22,18 @@ def jogar():
                 index += 1
         else:
             ##Se o chute não estiver dentro da palavra secreta, então sai adiciona mais um erro
-            erros += 1
+            erros -= 1
+            print('Ops, você errou! Faltam {} tentativas'.format(erros))
 
-        ##Quando os erros atingirem o numero 6 a var enforcou se torna True consequentemente saindo do laço
-        enforcou = erros == 6
-        ##Quando o jogador acertou todas as letras
+        ## Quando os erros atingirem o numero 6 a var enforcou se torna True consequentemente saindo do laço
+        enforcou = erros == 0
+        
+        ## Quando o jogador acertou todas as letras
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
     
     if(acertou):
-        print('Você ganhaou')
+        print('Você ganhou')
     else:
         print('Você perdeu')
         
