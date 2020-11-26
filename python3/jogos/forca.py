@@ -1,11 +1,11 @@
 import random
 
-def jogar():
-    imprime_abertura()
 
-    carrega_arquivo_palavras()
-    
-    letras_acertadas = ['_' for letra in palavra_secreta] 
+def jogar():
+
+    imprime_abertura()
+    palavra_secreta = carrega_arquivo_palavras()
+    letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
 
     enforcou = False
     acertou = False
@@ -39,12 +39,7 @@ def jogar():
         print('Você perdeu')
         
     print('Fim do jogo!')
-        
-
-if(__name__ == "__main__"):
-    jogar()
-
-    
+            
 def imprime_abertura():
     print('*********************************')
     print('***Bem vindo ao jogo de Forca!***')
@@ -61,3 +56,10 @@ def carrega_arquivo_palavras():
 
     num_palavra = random.randrange(0, len(palavras))
     palavra_secreta = palavras[num_palavra].upper()
+    return palavra_secreta
+
+def inicializa_letras_acertadas(palavra):
+    return ['_' for letra in palavra]
+
+if(__name__ == "__main__"):
+    jogar()
