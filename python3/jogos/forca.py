@@ -1,26 +1,21 @@
 import random
 
-
 def jogar():
 
     imprime_abertura()
     palavra_secreta = carrega_arquivo_palavras()
     letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
+    print(letras_acertadas)
 
     enforcou = False
     acertou = False
     erros = 6
     
     while (not enforcou and not acertou):
-        chute = input('Chute uma letra: ')
-        chute = chute.upper().strip()
+        chute = chute_jogador()
         
         if(chute in palavra_secreta):
-            index = 0
-            for letra in palavra_secreta:
-                if(letra == chute):
-                    letras_acertadas[index] = letra
-                index += 1
+           marca_chute_correto(chute, letras_acertadas, palavra_secreta)
         else:
             ##Se o chute não estiver dentro da palavra secreta, então sai adiciona mais um erro
             erros -= 1
@@ -34,12 +29,22 @@ def jogar():
         print(letras_acertadas)
     
     if(acertou):
-        print('Você ganhou')
+        imprime_mensagem_ganhador()
     else:
-        print('Você perdeu')
-        
+        imprime_mensagem_perdedor()   
+
     print('Fim do jogo!')
-            
+
+def imprime_mensagem_ganhador():
+    print('*********************************')
+    print('******** VOCÊ GANHOU !!! ********')
+    print('*********************************')
+
+def imprime_mensagem_perdedor():
+    print('---------------------------------')
+    print('-------- VOCÊ PERDEU !!! --------')
+    print('---------------------------------')
+
 def imprime_abertura():
     print('*********************************')
     print('***Bem vindo ao jogo de Forca!***')
@@ -60,6 +65,18 @@ def carrega_arquivo_palavras():
 
 def inicializa_letras_acertadas(palavra):
     return ['_' for letra in palavra]
+
+def chute_jogador():
+    chute = input('Chute uma letra: ')
+    chute = chute.upper().strip()
+    return chute
+
+def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
+    index = 0
+    for letra in palavra_secreta:
+        if(letra == chute):
+            letras_acertadas[index] = letra
+        index += 1
 
 if(__name__ == "__main__"):
     jogar()
