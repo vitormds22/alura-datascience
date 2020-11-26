@@ -1,9 +1,22 @@
+import random
+
 def jogar():
     print('*********************************')
     print('***Bem vindo ao jogo de Forca!***')
     print('*********************************')
 
-    palavra_secreta = "maça".upper()
+    ## BLOCO DEDIDACO PARA LER O ARQUIVO DE PALAVRAS E SELECIONAR UMA ALEATÓRIA
+    arquivo = open('palavras.txt', 'r')
+    palavras = []
+
+    for linha in arquivo:
+        palavras.append(linha.strip())
+
+    arquivo.close()
+
+    num_palavra = random.randrange(0, len(palavras))
+    palavra_secreta = palavras[num_palavra].upper()
+
     letras_acertadas = ['_' for letra in palavra_secreta] 
 
     enforcou = False
