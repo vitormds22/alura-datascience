@@ -9,7 +9,7 @@ def jogar():
 
     enforcou = False
     acertou = False
-    erros = 6
+    erros = 0
     
     while (not enforcou and not acertou):
         chute = chute_jogador()
@@ -18,32 +18,55 @@ def jogar():
            marca_chute_correto(chute, letras_acertadas, palavra_secreta)
         else:
             ##Se o chute não estiver dentro da palavra secreta, então sai adiciona mais um erro
-            erros -= 1
-            print('Ops, você errou! Faltam {} tentativas'.format(erros))
+            erros += 1
+            desenha_forca(erros)
 
         ## Quando os erros atingirem o numero 6 a var enforcou se torna True consequentemente saindo do laço
-        enforcou = erros == 0
+        enforcou = erros == 7
         
         ## Quando o jogador acertou todas as letras
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
     
     if(acertou):
-        imprime_mensagem_ganhador()
+        imprime_mensagem_vencedor()
     else:
-        imprime_mensagem_perdedor()   
+        imprime_mensagem_perdedor(palavra_secreta)   
 
     print('Fim do jogo!')
 
-def imprime_mensagem_ganhador():
-    print('*********************************')
-    print('******** VOCÊ GANHOU !!! ********')
-    print('*********************************')
+def imprime_mensagem_vencedor():
+    print("Parabéns, você ganhou!")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
 
-def imprime_mensagem_perdedor():
-    print('---------------------------------')
-    print('-------- VOCÊ PERDEU !!! --------')
-    print('---------------------------------')
+def imprime_mensagem_perdedor(palavra_secreta):
+    print("Puxa, você foi enforcado!")
+    print("A palavra era {}".format(palavra_secreta))
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
 
 def imprime_abertura():
     print('*********************************')
@@ -77,6 +100,56 @@ def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
         if(letra == chute):
             letras_acertadas[index] = letra
         index += 1
+def desenha_forca(erros):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if(erros == 1):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 2):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 3):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 4):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 5):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(erros == 6):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (erros == 7):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
+
 
 if(__name__ == "__main__"):
     jogar()
