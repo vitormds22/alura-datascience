@@ -15,7 +15,7 @@ class Conta:
         return valor_saque <= valor_disponível_saque
 
     def sacar(self, valor):
-        if(self.__valida_saldo(valor)):
+        if self.__valida_saldo(valor):
             self.__saldo -= valor
         else:
             print('Você não tem saldo o suficiente!')
