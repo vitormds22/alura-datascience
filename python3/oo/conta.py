@@ -10,8 +10,15 @@ class Conta:
     def extrato(self):
         print('Saldo {} do titular {}'.format(self.__saldo, self.__titular))
 
+    def __valida_saldo(self, valor_saque):
+        valor_disponível_saque = self.__limite + self.__saldo
+        return valor_saque <= valor_disponível_saque
+
     def sacar(self, valor):
-        self.__saldo -= valor
+        if(self.__valida_saldo(valor)):
+            self.__saldo -= valor
+        else:
+            print('Você não tem saldo o suficiente!')
     
     def depositar(self, valor):
         self.__saldo += valor
