@@ -1,19 +1,55 @@
 class Filme: 
     
     def __init__(self, nome, ano, duracao):
-        self.nome = nome 
+        self.__nome = nome.title()
         self.ano = ano 
         self.duracao = duracao
+        self.__likes = 0
+
+    def add_likes(self):
+        self.__likes += 1
+
+    @property
+    def likes(self):
+        return self.__likes
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome.title()
+
+    
 
 class Serie:
 
     def __init__(self, nome, ano, temporadas):
-        self.nome = nome
+        self.__nome = nome.title()
         self.ano = ano 
         self.temporadas = temporadas
+        self.__likes = 0
 
-vingadores = Filme('Matrix', 2006, 160)
-print(f'*FILME* \nNome: {vingadores.nome} - Ano: {vingadores.ano} - Duração: {vingadores.duracao}\n')
+    def add_likes(self):
+        self.__likes += 1
+    
+    @property
+    def likes(self):
+        return self.__likes
 
-breaking_bad = Serie('Breaking Bad', 2008, 5)
-print('*SERIE*\nA melhor série do mundo é {}, estreou em {} e tem {} temporadas'.format(breaking_bad.nome, breaking_bad.ano, breaking_bad.temporadas))
+    @property
+    def nome(self):
+        return self.__nome
+    
+    @nome.setter
+    def nome(self,nome):
+        self.__nome = nome.title()
+
+vingadores = Filme('o menino de pijama listrado', 2006, 160)
+vingadores.add_likes()
+print(f'*FILME* \nFilme: {vingadores.nome} - Ano: {vingadores.ano} - Duração: {vingadores.duracao} - Likes: {vingadores.likes}\n')
+
+breaking_bad = Serie('breaking bad', 2008, 5)
+breaking_bad.add_likes()
+print(f'*SERIE* \nSérie: {breaking_bad.nome} - Ano: {breaking_bad.ano} - Temporadas: {breaking_bad.temporadas} - Likes: {breaking_bad.likes}')
