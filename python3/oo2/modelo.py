@@ -26,7 +26,6 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
-
 class Serie(Programa):
 
     def __init__(self, nome, ano, temporadas):
@@ -35,10 +34,15 @@ class Serie(Programa):
 
 
 vingadores = Filme('o menino de pijama listrado', 2006, 160)
-vingadores.add_likes()
-print(f'*FILME* \nFilme: {vingadores.nome} - Ano: {vingadores.ano} - Duração: {vingadores.duracao} - Likes: {vingadores.likes}\n')
+# vingadores.add_likes()
+# print(f'*FILME* \nFilme: {vingadores.nome} - Ano: {vingadores.ano} - Duração: {vingadores.duracao} - Likes: {vingadores.likes}\n')
 
 breaking_bad = Serie('breaking bad', 2008, 5)
-breaking_bad.add_likes()
-breaking_bad.add_likes()
-print(f'*SERIE* \nSérie: {breaking_bad.nome} - Ano: {breaking_bad.ano} - Temporadas: {breaking_bad.temporadas} - Likes: {breaking_bad.likes}')
+# breaking_bad.add_likes()
+# breaking_bad.add_likes()
+# print(f'*SERIE* \nSérie: {breaking_bad.nome} - Ano: {breaking_bad.ano} - Temporadas: {breaking_bad.temporadas} - Likes: {breaking_bad.likes}')
+
+filmes_e_series = [vingadores, breaking_bad]
+
+for programas in filmes_e_series:
+    print(f'{programas.nome} - {programas.temporadas} - {programas.likes}')
