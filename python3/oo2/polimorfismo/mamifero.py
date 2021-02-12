@@ -6,6 +6,10 @@ class Mamifero(Animal):
         super().__init__(peso, idade)
         self._cor_pelo = cor_pelo
 
+    @property
+    def cor_pelo(self):
+        return self._cor_pelo
+
     def alimentar(self):
         print('Leite')
 
@@ -18,3 +22,4 @@ m.locomover()
 m.alimentar()
 m.emitirSom()
 print(m.peso)
+print(m.cor_pelo)
